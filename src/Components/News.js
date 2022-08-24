@@ -30,7 +30,7 @@ export class news extends Component {
       })
     }
     handleNextClick = async ()=>{
-      if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)) {
+      if (this.state.page + 1 > Math.ceil(this.state.totalResults / 18)) {
       }
       else {
           let url = `https://newsapi.org/v2/top-headlines?country=in&apikey=dbe57b028aeb41e285a226a94865f7a7&page=${this.state.page + 1}&pageSize=18`;
