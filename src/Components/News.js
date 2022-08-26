@@ -16,14 +16,18 @@ export class news extends Component {
         category: PropTypes.string
       }
       articles=[];
-    constructor(){
-      super();
+    capitalizeFirstLetter = (string) => {
+      return string.charAt(0).toUpperCase()+ string.slice(1);
+    }
+    constructor(props){
+      super(props);
       console.log("Hello I am a constructor from News component");
       this.state = {
           articles: this.articles,
           loading: false,
           page: 1
       }
+      document.title = `${this.capitalizeFirstLetter(this.props.category)} - NewsKing`;
     } 
     async updateNews(){
       let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e4aa01e7ca594d9e8c7c6dc01fc9d975&page=${this.state.page}&pageSize=${this.props.pageSize}`
